@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link id="styleSheet" rel="stylesheet">
+    <script>
+        let darkMode = window.localStorage.getItem('darkMode');
+        let styleSheetElem = document.getElementById('styleSheet');
+
+
+        if (darkMode){
+            if (darkMode === '1'){
+                styleSheetElem.href = 'css/dark_style.css';
+            }else {
+                styleSheetElem.href = 'css/style.css';
+            }
+        }else {
+            styleSheetElem.href = 'css/style.css';
+            window.localStorage.setItem('darkMode', '0')
+        }
+
+        function changeTheme() {
+            let darkModeValue = window.localStorage.getItem('darkMode');
+            if (darkModeValue === '1' || '0'){
+                if (darkModeValue === '1'){
+                    window.localStorage.setItem('darkMode', '0');
+                    styleSheetElem.href = 'css/style.css';
+                }else if (darkModeValue === '0') {
+                    window.localStorage.setItem('darkMode', '1');
+                    styleSheetElem.href = 'css/dark_style.css';
+                }else{
+                    window.localStorage.setItem('darkMode', '0');
+                    changeTheme();
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/custom_style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <style>
+        button, a, textarea, footer {
+            font-family: 'Cairo', sans-serif;
+        }
+    </style>
+    <title>مجهول | إرسال رسالة</title>
+
+</head>
+<body id="body">
+
+
+<!--navbar start-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-ternary">
+    <a class="navbar-brand" href="index.html">مجهول</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <div class="form-inline mt-4 mt-md-3 mt-lg-0">
+            <a href="signup.html" class="btn btn-block btn-light px-4 mr-sm-2 mr-md-2 text-ternary col-md col-sm">تسجيل</a>
+            <a href="signin.html" class="btn btn-block btn-outline-light px-1 mt-sm-0 mt-md-0 col-md col-sm">دخول</a>
+        </div>
+    </div>
+</nav>
+<!--navbar end-->
+
+<!--container start-->
+<div class="container pt-3 text-center">
+
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <img src="images/frank.jpg" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px;">
+        </div>
+        <div class="col-12">
+            <h4 class="text-muted pt-1">عادل العنزي</h4>
+        </div>
+
+        <form class="pt-3">
+            <div class="form-group col-12">
+                <textarea class="form-control text-center text-muted" rows="6" placeholder="أترك رسالة..."></textarea>
+                <div class="col-12 my-3">
+                    <div class="dropdown-divider"></div>
+                </div>
+                <span class="small text-muted" style="font-size: small;">في حال كانت رسالتك مسيئة سيتم حظرك من إستخدام مجهول مدى الحياة.</span>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-block btn-ternary">إرسال
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+<!--container end-->
+
+
+
+
+    <div id="footer" class="container-fluid px-0" style="position: relative; visibility: hidden;">
+        <footer class="mt-3">
+            <div class="text-white text-center pt-3 pb-2">
+                <p>جميع الحقوق محفوظة مجهول © 2021</p>
+            </div>
+        </footer>
+    </div>
+
+
+
+<!--jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="js/set_footer_less_content.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/3805a1b0b8.js" crossorigin="anonymous"></script>
+</body>
+</html>

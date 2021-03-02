@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link id="styleSheet" rel="stylesheet">
+    <script>
+        let darkMode = window.localStorage.getItem('darkMode');
+        let styleSheetElem = document.getElementById('styleSheet');
+
+
+        if (darkMode){
+            if (darkMode === '1'){
+                styleSheetElem.href = 'css/dark_style.css';
+            }else {
+                styleSheetElem.href = 'css/style.css';
+            }
+        }else {
+            styleSheetElem.href = 'css/style.css';
+            window.localStorage.setItem('darkMode', '0')
+        }
+
+        function changeTheme() {
+            let darkModeValue = window.localStorage.getItem('darkMode');
+            if (darkModeValue === '1' || '0'){
+                if (darkModeValue === '1'){
+                    window.localStorage.setItem('darkMode', '0');
+                    styleSheetElem.href = 'css/style.css';
+                }else if (darkModeValue === '0') {
+                    window.localStorage.setItem('darkMode', '1');
+                    styleSheetElem.href = 'css/dark_style.css';
+                }else{
+                    window.localStorage.setItem('darkMode', '0');
+                    changeTheme();
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/custom_style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+    <style>
+        button, a, footer {
+            font-family: 'Cairo', sans-serif;
+        }
+        h5 {
+            font-family: 'Cairo', sans-serif;
+            letter-spacing: -1px;
+        }
+    </style>
+    <title>مجهول | الرسائل المستلمة</title>
+
+</head>
+<body>
+
+
+<!--navbar start-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-ternary">
+    <a class="navbar-brand" href="index.html">مجهول</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <div class="form-inline mt-4 mt-md-3 mt-lg-0">
+            <button href="signup.html" onclick="changeTheme()" class="btn btn-block btn-light px-4 mr-sm-2 mr-md-2 text-ternary col-md col-sm">
+                <i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i>
+            </button>
+            <a href="signin.html" class="btn btn-block btn-outline-light px-1 mt-sm-0 mt-md-0 col-md col-sm">خروج</a>
+        </div>
+    </div>
+</nav>
+<!--navbar end-->
+
+<!--container start-->
+<div class="container py-3">
+
+    <div class="row text-center">
+        <div class="col-12">
+            <img src="images/frank.jpg" class="img-thumbnail rounded-circle" style="width: 150px; height: 150px;">
+        </div>
+
+        <div class="col-12">
+            <p class="text-muted pt-1">
+                <span class="h4">عادل العنزي</span>
+                <a href="profile.html" class="text-ternary" style="font-size: 25px">
+                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+            </p>
+        </div>
+
+        <div class="col-12">
+            <input id="userUrl" type="text" value="i love you!" hidden>
+            <button id="copyBtn" onclick="copyMyUrl()" class="btn btn-ternary">نسخ الرابط الخاص بك
+                <i class="fa fa-link" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="mt-3">
+        <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">الخط الزمني</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="messages_received.html">الرسائل المستلمة</a>
+                </li>
+        </ul>
+
+
+        <div class="row justify-content-center">
+            <!--message card start-->
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card mt-3 shadow border-0 text-muted">
+                    <div class="card-body py-3">
+                        <p class="card-text text-center">سقوط فضاء صفحته لها، الخليج العالمي مناطق بلا الدفاع أسفل وتبعات واحد يركز يتعادل ولكنها بوضوح غير تقتحم أقل لنا الأول</p>
+                    </div>
+                    <div class="card-footer border-0 p-2">
+                        <div class="text-muted px-2">منذ 9 دقيقة</div>
+                        <div class="row">
+                            <div class="col-12 d-inline-flex">
+                                <button class="btn btn-block text-danger border-0">حذف
+                                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                </button>
+                                <p class="m-2 text-muted">|</p>
+                                <button class="btn btn-block mt-0 text-muted">إبلاغ
+                                    <i class="fa fa-flag fa-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <div class="col-12 pt-1">
+                                <button
+                                        class="btn btn-block btn-ternary"
+                                        data-toggle="modal" data-target="#replyMessageModal"
+                                        data-message="سقوط فضاء صفحته لها، الخليج العالمي مناطق بلا الدفاع أسفل وتبعات واحد يركز يتعادل ولكنها بوضوح غير تقتحم أقل لنا الأول"
+                                >رد
+                                    <i class="fa fa-reply" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card mt-3 shadow border-0 text-muted">
+                    <div class="card-body py-3">
+                        <p class="card-text text-center">أربعين يجري وتهدد دائما يعنى هكذا ماذا برضه الحريات يلبي الجيش سيارة نقول دعم هذه خلال جبل شاشة الحد للغاية شراع تلك</p>
+                    </div>
+                    <div class="card-footer border-0 p-2">
+                        <div class="text-muted px-2">منذ 5 ساعة</div>
+                        <div class="row">
+                            <div class="col-12 d-inline-flex">
+                                <button class="btn btn-block text-danger border-0">حذف
+                                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                </button>
+                                <p class="m-2 text-muted">|</p>
+                                <button class="btn btn-block mt-0 text-muted">إبلاغ
+                                    <i class="fa fa-flag fa-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <div class="col-12 pt-1">
+                                <button
+                                        class="btn btn-block btn-ternary"
+                                        data-toggle="modal" data-target="#replyMessageModal"
+                                        data-message="سقوط فضاء صفحته لها، الخليج العالمي مناطق بلا الدفاع أسفل وتبعات واحد يركز يتعادل ولكنها بوضوح غير تقتحم أقل لنا الأول"
+                                >رد
+                                    <i class="fa fa-reply" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card mt-3 shadow border-0 text-muted">
+                    <div class="card-body py-3">
+                        <p class="card-text text-center">بشكل الضخمة أن مرشحة لان على يبقى ثالثا التي يمر نحن سماء وهي البشرية معينة، عن رأسها صحون التعامل البحرية طاولة</p>
+                    </div>
+                    <div class="card-footer border-0 p-2">
+                        <div class="text-muted px-2">منذ 3 يوم</div>
+                        <div class="row">
+                            <div class="col-12 d-inline-flex">
+                                <button class="btn btn-block text-danger border-0">حذف
+                                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                </button>
+                                <p class="m-2 text-muted">|</p>
+                                <button class="btn btn-block mt-0 text-muted">إبلاغ
+                                    <i class="fa fa-flag fa-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <div class="col-12 pt-1">
+                                <button
+                                        class="btn btn-block btn-ternary"
+                                        data-toggle="modal" data-target="#replyMessageModal"
+                                        data-message="سقوط فضاء صفحته لها، الخليج العالمي مناطق بلا الدفاع أسفل وتبعات واحد يركز يتعادل ولكنها بوضوح غير تقتحم أقل لنا الأول"
+                                >رد
+                                    <i class="fa fa-reply" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card mt-3 shadow border-0 text-muted">
+                    <div class="card-body py-3">
+                        <p class="card-text text-center">اعرف لها، قوية غير يجعلها إلى تدفق اتجاه ليس أن العسكرية أن وعلى سيطرة بين التقرير كميات بعض قادة عند انسحاب</p>
+                    </div>
+                    <div class="card-footer border-0 p-2">
+                        <div class="text-muted px-2">منذ 2 أسبوع</div>
+                        <div class="row">
+                            <div class="col-12 d-inline-flex">
+                                <button class="btn btn-block text-danger border-0">حذف
+                                    <i class="fa fa-trash-o fa-lg" aria-hidden="true"></i>
+                                </button>
+                                <p class="m-2 text-muted">|</p>
+                                <button class="btn btn-block mt-0 text-muted">إبلاغ
+                                    <i class="fa fa-flag fa-lg" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <div class="col-12 pt-1">
+                                <button
+                                        class="btn btn-block btn-ternary"
+                                        data-toggle="modal" data-target="#replyMessageModal"
+                                        data-message="سقوط فضاء صفحته لها، الخليج العالمي مناطق بلا الدفاع أسفل وتبعات واحد يركز يتعادل ولكنها بوضوح غير تقتحم أقل لنا الأول"
+                                >رد
+                                    <i class="fa fa-reply" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--message card end-->
+        </div>
+    </div>
+</div>
+<!--container end-->
+
+<!--reply to message modal start-->
+<div class="modal fade" id="replyMessageModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body pb-0">
+                <form>
+                    <div class="form-group">
+                        <h5 class="font-weight-bold text-ternary text-center">الرسالة</h5>
+                        <textarea class="form-control text-center text-muted border-0 textarea-disabled-bg" rows="5" id="text-message" disabled></textarea>
+                    </div>
+                    <div class="form-group">
+                        <h5 class="font-weight-bold text-ternary text-center">الرد</h5>
+                        <textarea class="form-control text-center" rows="5" placeholder="أترك رد..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-block btn-ternary">إرسال
+                    <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                </button>
+                <button type="button" class="btn btn-block btn-secondary mt-1" data-dismiss="modal">إلغاء</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--reply to message modal end-->
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div class="col-12">
+            <ul class="pagination justify-content-center">
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">التالي</a></li>
+            </ul>
+        </div>
+
+        <div class="col-12 px-0">
+            <footer>
+                <div class="text-white text-center pt-3 pb-2">
+                    <p>جميع الحقوق محفوظة مجهول © 2021</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+</div>
+
+
+<!--jQuery and Bootstrap Bundle (includes Popper) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/3805a1b0b8.js" crossorigin="anonymous"></script>
+<script>
+    $('#replyMessageModal').on('show.bs.modal', function (event) {
+        let button = $(event.relatedTarget)
+        let message = button.data('message')
+        let modal = $(this)
+        modal.find('#text-message').val(message)
+    });
+
+    function copyMyUrl() {
+        // the code does not completed
+        let userUrlInput = document.getElementById('userUrl');
+        let copyBtn = document.getElementById('copyBtn');
+
+        copyBtn.innerHTML = 'تم نسخ الرابط في الحافظة ' +
+            '<i class="fa fa-check" aria-hidden="true"></i>';
+
+        setTimeout(() => {
+            // copyBtn.innerText = 'نسخ الرابط الخاص بك';
+            copyBtn.innerHTML = 'نسخ الرابط الخاص بك ' +
+                '<i class="fa fa-link" aria-hidden="true"></i>';
+        },3000)
+    }
+</script>
+</body>
+</html>
