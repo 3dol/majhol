@@ -319,9 +319,9 @@
             '<i class="fa fa-check" aria-hidden="true"></i>';
 
         setTimeout(() => {
-            // copyBtn.innerText = 'نسخ الرابط الخاص بك';
             copyBtn.innerHTML = 'نسخ الرابط الخاص بك ' +
                 '<i class="fa fa-link" aria-hidden="true"></i>';
+            copyBtn.blur();
         },3000)
     }
 </script>
