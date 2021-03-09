@@ -10266,7 +10266,8 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 footer {
-    background-color: #339aa5;
+    color: #6c757d;
+    background-color: #f5f6f8;
 }
 
 .textarea-disabled-bg {
