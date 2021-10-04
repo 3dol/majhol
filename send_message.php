@@ -1,48 +1,5 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link id="styleSheet" rel="stylesheet">
-    <script>
-        let darkMode = window.localStorage.getItem('darkMode');
-        let styleSheetElem = document.getElementById('styleSheet');
-
-
-        if (darkMode){
-            if (darkMode === '1'){
-                styleSheetElem.href = 'css/dark_style.css';
-            }else {
-                styleSheetElem.href = 'css/style.css';
-            }
-        }else {
-            styleSheetElem.href = 'css/style.css';
-            window.localStorage.setItem('darkMode', '0')
-        }
-
-        function changeTheme() {
-            let darkModeValue = window.localStorage.getItem('darkMode');
-            if (darkModeValue === '1' || '0'){
-                if (darkModeValue === '1'){
-                    window.localStorage.setItem('darkMode', '0');
-                    styleSheetElem.href = 'css/style.css';
-                }else if (darkModeValue === '0') {
-                    window.localStorage.setItem('darkMode', '1');
-                    styleSheetElem.href = 'css/dark_style.css';
-                }else{
-                    window.localStorage.setItem('darkMode', '0');
-                    changeTheme();
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="template/css/custom_style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-    <style>
+<?php require_once __DIR__. '/template/header.php';?>
+<style>
         button, a, textarea, footer {
             font-family: 'Cairo', sans-serif;
         }
@@ -63,8 +20,8 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto"></ul>
         <div class="form-inline mt-4 mt-md-3 mt-lg-0">
-            <a href="signup.html" class="btn btn-block btn-light px-4 mr-sm-2 mr-md-2 text-ternary col-md col-sm">تسجيل</a>
-            <a href="signin.html" class="btn btn-block btn-outline-light px-1 mt-sm-0 mt-md-0 col-md col-sm">دخول</a>
+            <a href="signup.php" class="btn btn-block btn-light px-4 mr-sm-2 mr-md-2 text-ternary col-md col-sm">تسجيل</a>
+            <a href="signin.php" class="btn btn-block btn-outline-light px-1 mt-sm-0 mt-md-0 col-md col-sm">دخول</a>
         </div>
     </div>
 </nav>

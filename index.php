@@ -1,46 +1,4 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link id="styleSheet" rel="stylesheet">
-    <script>
-        let darkMode = window.localStorage.getItem('darkMode');
-        let styleSheetElem = document.getElementById('styleSheet');
-
-            if (darkMode){
-                if (darkMode === '1'){
-                    styleSheetElem.href = 'css/dark_style.css';
-                }else {
-                    styleSheetElem.href = 'css/style.css';
-                }
-            }else {
-                styleSheetElem.href = 'css/style.css';
-                window.localStorage.setItem('darkMode', '0')
-            }
-
-        function changeTheme() {
-            let darkModeValue = window.localStorage.getItem('darkMode');
-            if (darkModeValue === '1' || '0'){
-                if (darkModeValue === '1'){
-                    window.localStorage.setItem('darkMode', '0');
-                    styleSheetElem.href = 'css/style.css';
-                }else if (darkModeValue === '0') {
-                    window.localStorage.setItem('darkMode', '1');
-                    styleSheetElem.href = 'css/dark_style.css';
-                }else{
-                    window.localStorage.setItem('darkMode', '0');
-                    changeTheme();
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="template/css/custom_style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+<?php require_once __DIR__. '/template/header.php';?>
     <style>
         button, a, footer, h5, span {
             font-family: 'Cairo', sans-serif;
@@ -93,11 +51,11 @@
         </div>
 
         <div class="col-12 align-self-center">
-            <a href="signin.html" class="btn btn-secondary btn-lg btn-block">دخول</a>
+            <a href="signin.php" class="btn btn-secondary btn-lg btn-block">دخول</a>
         </div>
 
         <div class="col-12 pt-3">
-            <a href="signup.html" class="btn btn-ternary btn-block btn-lg">تسجيل</a>
+            <a href="signup.php" class="btn btn-ternary btn-block btn-lg">تسجيل</a>
         </div>
 
         <div class="col-12 my-3">

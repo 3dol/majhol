@@ -1,48 +1,5 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link id="styleSheet" rel="stylesheet">
-    <script>
-        let darkMode = window.localStorage.getItem('darkMode');
-        let styleSheetElem = document.getElementById('styleSheet');
-
-
-        if (darkMode){
-            if (darkMode === '1'){
-                styleSheetElem.href = 'css/dark_style.css';
-            }else {
-                styleSheetElem.href = 'css/style.css';
-            }
-        }else {
-            styleSheetElem.href = 'css/style.css';
-            window.localStorage.setItem('darkMode', '0')
-        }
-
-        function changeTheme() {
-            let darkModeValue = window.localStorage.getItem('darkMode');
-            if (darkModeValue === '1' || '0'){
-                if (darkModeValue === '1'){
-                    window.localStorage.setItem('darkMode', '0');
-                    styleSheetElem.href = 'css/style.css';
-                }else if (darkModeValue === '0') {
-                    window.localStorage.setItem('darkMode', '1');
-                    styleSheetElem.href = 'css/dark_style.css';
-                }else{
-                    window.localStorage.setItem('darkMode', '0');
-                    changeTheme();
-                }
-            }
-        }
-    </script>
-    <link type="text/css" rel="stylesheet" href="template/css/custom_style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-    <style>
+<?php require_once __DIR__. '/template/header.php';?>
+<style>
         button, a, footer {
             font-family: 'Cairo', sans-serif;
         }
@@ -66,7 +23,7 @@
             <button href="signup.html" onclick="changeTheme()" class="btn btn-block btn-light px-4 mr-sm-2 mr-md-2 text-ternary col-md col-sm">
                 <i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i>
             </button>
-            <a href="signin.html" class="btn btn-block btn-outline-light px-1 mt-sm-0 mt-md-0 col-md col-sm">خروج</a>
+            <a href="signin.php" class="btn btn-block btn-outline-light px-1 mt-sm-0 mt-md-0 col-md col-sm">خروج</a>
         </div>
     </div>
 </nav>
@@ -119,10 +76,10 @@
                 </div>
 
                     <div class="form-group text-center col-12">
-                        <a href="change_password.html" class="btn btn-sm btn-secondary mt-1">تغيير كلمة المرور
+                        <a href="change_password.php" class="btn btn-sm btn-secondary mt-1">تغيير كلمة المرور
                             <i class="fa fa-repeat" aria-hidden="true"></i>
                         </a>
-                        <a href="delete_account.html" class="btn btn-sm btn-danger mt-1">حذف الحساب
+                        <a href="delete_account.php" class="btn btn-sm btn-danger mt-1">حذف الحساب
                             <i class="fa fa-trash" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -132,7 +89,7 @@
 <!--                    <i class="fa fa-check" aria-hidden="true"></i>-->
 <!--                </button>-->
 
-                <a href="home.html" class="btn btn-block btn-ternary">حفظ
+                <a href="home.php" class="btn btn-block btn-ternary">حفظ
                     <i class="fa fa-check" aria-hidden="true"></i>
                 </a>
             </form>
