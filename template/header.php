@@ -18,12 +18,12 @@ ini_set('display_errors', 1);
 
         if (darkMode){
             if (darkMode === '1'){
-                styleSheetElem.href = 'css/dark_style.css';
+                styleSheetElem.href = 'template/css/dark_style.css';
             }else {
-                styleSheetElem.href = 'css/style.css';
+                styleSheetElem.href = 'template/css/style.css';
             }
         }else {
-            styleSheetElem.href = 'css/style.css';
+            styleSheetElem.href = 'template/css/style.css';
             window.localStorage.setItem('darkMode', '0')
         }
 
@@ -32,10 +32,10 @@ ini_set('display_errors', 1);
             if (darkModeValue === '1' || '0'){
                 if (darkModeValue === '1'){
                     window.localStorage.setItem('darkMode', '0');
-                    styleSheetElem.href = 'css/style.css';
+                    styleSheetElem.href = 'template/css/style.css';
                 }else if (darkModeValue === '0') {
                     window.localStorage.setItem('darkMode', '1');
-                    styleSheetElem.href = 'css/dark_style.css';
+                    styleSheetElem.href = 'template/css/dark_style.css';
                 }else{
                     window.localStorage.setItem('darkMode', '0');
                     changeTheme();

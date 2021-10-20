@@ -43,31 +43,31 @@
         <hr class="pb-1">
 
         <div class="jumbotron shadow py-4">
-            <form>
+            <form action="<?php echo $_SERVER['PHP_SELF']?>" method="post">
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="الإسم">
+                        <input name="name" type="text" class="form-control" placeholder="الإسم">
                         <span class="small" style="font-size: small;">يتم عرض الإسم للمجهولين عند رغبتهم في إرسال رسالة لك.</span>
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="text" class="form-control" placeholder="إسم المستخدم">
+                        <input name="username" type="text" class="form-control" placeholder="إسم المستخدم">
                         <span class="small" style="font-size: small;">إسم المستخدم هو المعرف الفريد الخاص بك (بالإنجليزية فقط)<span class="text-danger">*</span>.</span>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="البريد الإلكتروني">
+                    <input name="email" type="email" class="form-control" placeholder="البريد الإلكتروني">
                     <span class="small" style="font-size: small;">يتم تأمين حسابك وضمان عدم فقدانه بواسطة بريدك الإلكتروني.</span>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <input type="password" class="form-control" placeholder="كلمة المرور">
+                        <input name="password" type="password" class="form-control" placeholder="كلمة المرور">
                         <span class="small" style="font-size: small;">يجب أن تكون كلمة المرور أكثر من 8 خانات (حروف وأرقام)<span class="text-danger">*</span>.</span>
                     </div>
                     <div class="form-group col-md-6">
-                        <input type="password" class="form-control" placeholder="تأكيد كلمة المرور">
+                        <input name="password2" type="password" class="form-control" placeholder="تأكيد كلمة المرور">
                         <span class="small" style="font-size: small;">أعد إدخال كلمة المرور مرة آخرى.</span>
                     </div>
                 </div>
@@ -77,20 +77,47 @@
                 </div>
 
                             <!--production-->
-<!--                <button type="submit" class="btn btn-block btn-ternary">تسجيل-->
-<!--                    <i class="fa fa-user-plus" aria-hidden="true"></i>-->
-<!--                </button> -->
-
-                <a href="home.php" class="btn btn-block btn-ternary">تسجيل
+                <button type="submit" class="btn btn-block btn-ternary">تسجيل
                     <i class="fa fa-check" aria-hidden="true"></i>
-                </a>
+                </button>
+
+<!--                <a href="home.php" class="btn btn-block btn-ternary">تسجيل-->
+<!--                    <i class="fa fa-check" aria-hidden="true"></i>-->
+<!--                </a>-->
             </form>
         </div>
 
+        <?php
+
+        function filterString($string){
+            $string = filter_var(trim($string), FILTER_SANITIZE_STRING);
+            return $string;
+        }
+
+        function filterEmail($email){
+            $email = filter_var(trim($email), FILTER_SANITIZE_EMAIL);
+
+            if(filter_var($email, FILTER_VALIDATE_EMAIL)){
+                return $email;
+            }else{
+                return false;
+            }
+        }
+
+            if($_SERVER['REQUEST_METHOD'] === 'POST'){
+                // validate email
+                if(!filterEmail($_POST['email'])){
+                    die('Sorry your email is incorrect.');
+                }
+
+                echo '<pre>';
+                print_r($_POST);
+                echo '</pre>';
+            }
+        ?>
+
     </div>
     <!--container end-->
-
-
 
     <div id="footer" class="container-fluid px-0" style="position: relative; visibility: hidden;">
         <footer class="mt-3">
