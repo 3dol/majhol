@@ -1,46 +1,4 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link id="styleSheet" rel="stylesheet">
-    <script>
-        let darkMode = window.localStorage.getItem('darkMode');
-        let styleSheetElem = document.getElementById('styleSheet');
-
-            if (darkMode){
-                if (darkMode === '1'){
-                    styleSheetElem.href = 'css/dark_style.css';
-                }else {
-                    styleSheetElem.href = 'css/style.css';
-                }
-            }else {
-                styleSheetElem.href = 'css/style.css';
-                window.localStorage.setItem('darkMode', '0')
-            }
-
-        function changeTheme() {
-            let darkModeValue = window.localStorage.getItem('darkMode');
-            if (darkModeValue === '1' || '0'){
-                if (darkModeValue === '1'){
-                    window.localStorage.setItem('darkMode', '0');
-                    styleSheetElem.href = 'css/style.css';
-                }else if (darkModeValue === '0') {
-                    window.localStorage.setItem('darkMode', '1');
-                    styleSheetElem.href = 'css/dark_style.css';
-                }else{
-                    window.localStorage.setItem('darkMode', '0');
-                    changeTheme();
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="css/custom_style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
+<?php require_once __DIR__. '/template/header.php';?>
     <style>
         button, a, footer, h5, span {
             font-family: 'Cairo', sans-serif;
@@ -59,7 +17,7 @@
 
 <!--navbar start-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-ternary">
-    <a class="navbar-brand" href="index.html">مجهول</a>
+    <a class="navbar-brand" href="index.php">مجهول</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -93,11 +51,11 @@
         </div>
 
         <div class="col-12 align-self-center">
-            <a href="signin.html" class="btn btn-secondary btn-lg btn-block">دخول</a>
+            <a href="signin.php" class="btn btn-secondary btn-lg btn-block">دخول</a>
         </div>
 
         <div class="col-12 pt-3">
-            <a href="signup.html" class="btn btn-ternary btn-block btn-lg">تسجيل</a>
+            <a href="signup.php" class="btn btn-ternary btn-block btn-lg">تسجيل</a>
         </div>
 
         <div class="col-12 my-3">
@@ -167,7 +125,7 @@
 
 
 <!--jQuery and Bootstrap Bundle (includes Popper) -->
-<script src="js/set_footer_more_content.js"></script>
+<script src="template/js/set_footer_more_content.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.rtlcss.com/bootstrap/v4.5.3/js/bootstrap.bundle.min.js" integrity="sha384-40ix5a3dj6/qaC7tfz0Yr+p9fqWLzzAXiwxVLt9dw7UjQzGYw6rWRhFAnRapuQyK" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/3805a1b0b8.js" crossorigin="anonymous"></script>

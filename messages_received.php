@@ -1,48 +1,5 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link id="styleSheet" rel="stylesheet">
-    <script>
-        let darkMode = window.localStorage.getItem('darkMode');
-        let styleSheetElem = document.getElementById('styleSheet');
-
-
-        if (darkMode){
-            if (darkMode === '1'){
-                styleSheetElem.href = 'css/dark_style.css';
-            }else {
-                styleSheetElem.href = 'css/style.css';
-            }
-        }else {
-            styleSheetElem.href = 'css/style.css';
-            window.localStorage.setItem('darkMode', '0')
-        }
-
-        function changeTheme() {
-            let darkModeValue = window.localStorage.getItem('darkMode');
-            if (darkModeValue === '1' || '0'){
-                if (darkModeValue === '1'){
-                    window.localStorage.setItem('darkMode', '0');
-                    styleSheetElem.href = 'css/style.css';
-                }else if (darkModeValue === '0') {
-                    window.localStorage.setItem('darkMode', '1');
-                    styleSheetElem.href = 'css/dark_style.css';
-                }else{
-                    window.localStorage.setItem('darkMode', '0');
-                    changeTheme();
-                }
-            }
-        }
-    </script>
-    <link rel="stylesheet" href="css/custom_style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
-    <style>
+<?php require_once __DIR__. '/template/header.php';?>
+<style>
         button, a, footer {
             font-family: 'Cairo', sans-serif;
         }
@@ -59,7 +16,7 @@
 
 <!--navbar start-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-ternary">
-    <a class="navbar-brand" href="index.html">مجهول</a>
+    <a class="navbar-brand" href="index.php">مجهول</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -70,7 +27,7 @@
             <button href="signup.html" onclick="changeTheme()" class="btn btn-block btn-light px-4 mr-sm-2 mr-md-2 text-ternary col-md col-sm">
                 <i class="fa fa-lightbulb-o fa-lg" aria-hidden="true"></i>
             </button>
-            <a href="signin.html" class="btn btn-block btn-outline-light px-1 mt-sm-0 mt-md-0 col-md col-sm">خروج</a>
+            <a href="signin.php" class="btn btn-block btn-outline-light px-1 mt-sm-0 mt-md-0 col-md col-sm">خروج</a>
         </div>
     </div>
 </nav>
@@ -87,7 +44,7 @@
         <div class="col-12">
             <p class="text-muted pt-1">
                 <span class="h4">عادل العنزي</span>
-                <a href="profile.html" class="text-ternary" style="font-size: 25px">
+                <a href="profile.php" class="text-ternary" style="font-size: 25px">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                 </a>
             </p>
@@ -105,10 +62,10 @@
     <div class="mt-3">
         <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.html">الخط الزمني</a>
+                    <a class="nav-link" href="home.php">الخط الزمني</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="messages_received.html">الرسائل المستلمة</a>
+                    <a class="nav-link active" href="messages_received.php">الرسائل المستلمة</a>
                 </li>
         </ul>
 
